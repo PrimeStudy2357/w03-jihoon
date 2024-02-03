@@ -12,12 +12,75 @@
       // 기초 자바스크립트
 
       // 1. 변수 선언
+      const myVar = "Hello";
+      let myVar2 = 512;
+      let a = 0;
+      let b = 0;
+      var test = 0;
+
+      myVar2 = myVar;
 
       // 2. 자바스크립트의 비교 연산자
+      if (1 == 1) {
+        console.log("Good");
+      }
+      if (1 == "1") {
+        console.log("Good?");
+      }
+      if (a == b) {
+        console.log("Good? 3");
+      }
+      // "==" 값이 같으면 True
+
+      if (1 === 1) {
+        console.log("Good");
+      }
+      if (1 === "1") {
+        console.log("Good?");
+      }
+      if (a === b) {
+        console.log("Good? 3");
+      }
+      if (a === 0) {
+        console.log("Good? 4");
+      }
+      if (a !== 1) {
+        console.log("Good? 5");
+      }
+      // "===" 주소가 같아야 True
 
       // 3. 간단한 콘솔 출력과 alert
+      console.time("1");
+
+      console.log("test");
+      if (test === "1") alert("Hello");
+      console.error("ERROR");
+
+      console.timeEnd("1");
 
       // 4. JSON을 배워보자
+      // JavaScript Object Notation
+      const myObj = {
+        myKey1: "a",
+        myObj2: {
+          myObj3: {
+            myObj4: {
+              myKey2: "b",
+            },
+          },
+        },
+      };
+
+      let newKey = "myKey3";
+      console.log(myObj["myKey1"]);
+
+      myObj.newKey = 12305812;
+      console.log(myObj.newKey);
+
+      myObj[newKey] = 512;
+      console.log(myObj[newKey]);
+
+      console.log(myObj.myKey1);
 
       // 심화 자바스크립트
 
