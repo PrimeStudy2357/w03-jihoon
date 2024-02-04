@@ -85,22 +85,131 @@
       // 심화 자바스크립트
 
       // 1. 스프레드 연산자 (...)
+      const myArray = [1, 2, 3, 4, 5];
+
+      console.log(myArray);
+      console.log(...myArray);
+      console.log(myArray[0], myArray[1], myArray[2], myArray[3], myArray[4]);
+      console.log(Math.max(...myArray));
 
       // 2. 함수형 프로그래밍
       // a. 일반 함수 선언.
+      function myFoo(a, b) {
+        const sum = a + b;
+
+        return sum;
+      }
+
+      console.log(myFoo(1, 2));
 
       // b. 람다식. 익명함수와 화살표 함수
+      const myFoo2 = function (a, b) {
+        const sum = a + b;
+
+        console.log(this);
+
+        return sum;
+      };
+
+      const newFoo = myFoo2;
+
+      console.log(myFoo2(1, 2));
+      console.log(newFoo(1, 2));
+
+      const arrowFoo = (a, b) => {
+        const sum = a + b;
+
+        console.log(this);
+
+        return sum;
+      };
+
+      console.log(arrowFoo(1, 2));
 
       // 3. 비동기 함수와 콜백 함수.
+      // setInterval(() => {
+      //   console.log("HI!");
+      // }, 1000);
+
+      // setTimeout(() => {
+      //   console.log("Hello");
+      // }, 1000);
+
+      // 비동기함수 === setInterval
+      // 콜백함수 === () => { console.log("HI") }
 
       // 4. 클래스
       // a. 함수를 사용한 클래스 선언 (일반 함수와 익명함수 가능)
+      console.log("====================");
 
+      function Car(wheel, size) {
+        this.wheel = wheel;
+        this.size = size;
+
+        this.getWheel = function () {
+          return this.wheel;
+        };
+
+        this.getSize = function () {
+          return this.size;
+        };
+      }
+
+      const myCar = new Car(4, "SUV");
+
+      console.log(myCar.getWheel());
+      console.log(myCar.getSize());
+
+      console.log("====================");
       // b. class 키워드 사용
+      class House {
+        constructor(room, people) {
+          this.room = room;
+          this.people = people;
+          this.waste = 8;
+        }
 
-      // 5. Web API 1. 브라우저 조작하기
+        clean() {
+          this.waste = 0;
+        }
 
-      // 6. Web API 2. HTML 조작하기
+        getPeople() {
+          return this.people;
+        }
+
+        getWaste = function () {
+          return this.waste;
+        };
+
+        getRoom = () => this.room;
+      }
+
+      const myHouse = new House(4, 2); // 인스턴스
+      console.log(myHouse.getRoom());
+      console.log(myHouse.getPeople());
+      console.log(myHouse.getWaste());
+      myHouse.clean();
+      console.log(myHouse.getWaste());
+
+      // 5. Web API 1. HTMeL 조작하기
+      const button = document.getElementById("btn");
+
+      button.innerText = "Click MEEEEEEEEE!";
+
+      const onClickHandler = (event) => {
+        alert("HI!");
+      };
+
+      button.addEventListener("click", onClickHandler);
+
+      // 6. Web API 2. 브라우저 조작하기
+      button.removeEventListener("click", onClickHandler);
+
+      const onClickBetterHandler = (event) => {
+        location.reload();
+      };
+
+      button.addEventListener("click", onClickBetterHandler);
     </script>
   </body>
 </html>
